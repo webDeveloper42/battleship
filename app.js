@@ -10,12 +10,12 @@ for(let i = 0; i < board.length;i++){
   console.log(board[i].join(' '))
 }
 //select two locations
+//NOT DONE: make it so that the row skips the first array and the col skips the first element of the arrays after the first one
 function add(type){
   if(type === 0){
     type += 1;
   }
 }
-//NOT DONE PLEASE MAKE......IDEA: make a function that spits out a row and a column
 function randomRow(){
   let row = Math.floor(Math.random() * board.length ) ;
   add(row);
@@ -29,20 +29,20 @@ function randomCol(){
   }
   return col;
 }
-//NOT DONE PLEASE MAKE......IDEA: check if both variables are the same and if so make them run random gen again until they are not the same
+//check if both variables are the same and if so make them run random gen again until they are not the same
 let cell1 = [randomRow(),randomCol()];
 let cell2 = [randomRow(),randomCol()];
-if(cell1 === cell2 && cell2 === cell1){
-  cell1;
-  cell2;
+while(cell1[0] === cell2[0] && cell1[1] === cell2[1]){
+    cell1 = [randomRow(),randomCol()];
+    cell2 = [randomRow(),randomCol()];
 }
-console.log(cell1 ,cell2);
 //create two ships
-function Ship(name, length = 1){
+//replace location with ship
+function Ship(name, length = 1, spot){
   this.name = name;
   this.length = length;
+  this.spot = spot;
 }
-const ship1 = new Ship('Ship 1');
-const ship2 = new Ship('Ship 2');
-console.log([[ship1.name, ship1.length],[ship2.name, ship2.length]])
-//replace location with ship
+const ship1 = new Ship('Ship 1', 1, board[cell1[0]][cell1[1]]);
+const ship2 = new Ship('Ship 2', 1, board[cell2[0]][cell2[1]]);
+console.log([[ship1.name, ship1.length , ship1.spot],[ship2.name, ship2.length, ship2.spot]])
