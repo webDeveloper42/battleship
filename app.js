@@ -15,6 +15,13 @@ dataBoard = dataBoard.map(function(arr){
   return arr.slice(1)
 });
 console.log(dataBoard);
+let cellData;
+for(let i = 0; i < dataBoard.length; i++){
+  for(let x = 0; x < dataBoard[i].length; x++){
+    cellData = dataBoard[i][x];
+    console.log(cellData);
+  }
+}
 //select two locations
 //NOT DONE: make it so that the row skips the first array and the col skips the first element of the arrays after the first one
 function randomRow(){
@@ -54,21 +61,11 @@ function getStrikeLocal(theShip){
   rs.question(`Enter a location to strike like "A2". ${theShip}'s location: ` )
 }
 getStrikeLocal(ship1.name);
-for(let i = 0; i < dataBoard.length; i++){
-  for(let x = 0; x < dataBoard[i].length; x++){
-    var cellData = dataBoard[i][x]
-    console.log(cellData);
-  }
-}
+
+
+//Link two ships to the cell data
+
+
 ///Check see if work
-for(let k = 0; k < cellData.length; k++){
-    while(getStrikeLocal === cellData[k]){
-      ship1.hit = true;
-      if(getStrikeLocal !== cellData[k]){
-        ship1.hit = false;
-        getStrikeLocal(ship1.name);
-      }else{
-        getStrikeLocal(ship1.name)
-      };
-  }
-}
+//if the answer to the question is false repeat the question
+//if the question's answer does not equal to ship one's spot repeat the question
