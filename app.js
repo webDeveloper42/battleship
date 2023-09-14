@@ -6,7 +6,7 @@ function game() {
     [" ", " 1 ", "2 ", "3 ", "4 "],
     ["A", "A1", "A2", "A3", "A4"],
     ["B", "B1", "B2", "B3", "B4"],
-    ["C", "C1", "C2", "C3", "C4"]
+    ["C", "C1", "C2", "C3", "C4"],
   ];
   for (let i = 0; i < displayBoard.length; i++) {
     console.log(displayBoard[i].join(" "));
@@ -54,7 +54,7 @@ function game() {
       `Enter a location to strike like "A2". ${theShip}'s location: `
     );
   }
-  function shipTarget(ship){
+  function shipTarget(ship) {
     return getStrikeLocal(ship.name);
   }
   let targetShip1;
@@ -63,15 +63,15 @@ function game() {
     targetShip1 = shipTarget(ship1);
     while (true) {
       if (targetShip1 === ship1.spot) {
-        console.log('Hit. You have sunk a battleship. 1 ship remaining');
+        console.log("Hit. You have sunk a battleship. 1 ship remaining");
         break;
       } else {
         if (guessTarget1.includes(targetShip1)) {
-          console.log('You have already picked this location. Miss!')
+          console.log("You have already picked this location. Miss!");
         } else {
           guessTarget1.push(targetShip1);
-          console.log(guessTarget1)
-          console.log('You have missed!') 
+          console.log(guessTarget1);
+          console.log("You have missed!");
         }
         targetShip1 = shipTarget(ship1);
       }
@@ -82,23 +82,22 @@ function game() {
         break;
       } else {
         if (guessTarget2.includes(targetShip2)) {
-          console.log('You have already picked this location. Miss!')
+          console.log("You have already picked this location. Miss!");
         } else {
           guessTarget2.push(targetShip2);
-          console.log(guessTarget2)
-          console.log('You have missed!') 
+          console.log(guessTarget2);
+          console.log("You have missed!");
         }
         targetShip2 = shipTarget(ship2);
       }
     }
   }
   strikeTheShip(ship1, ship2);
-  let againOrQuit = rs.keyInYNStrict('You have destroyed all battleships. Would you like to play again?')
-  
+  let againOrQuit = rs.keyInYNStrict(
+    "You have destroyed all battleships. Would you like to play again?"
+  );
+  if (againOrQuit) {
+    game();
+  }
 }
 game();
-
-//if target os equal to ship spot report hit and break
-// use an array to store guessed cells
-// make it that when ever you call the question and its a miss push the value to the guessed array 
-// then check if the questions input is equal to the guessed array 
