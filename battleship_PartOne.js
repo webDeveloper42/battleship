@@ -1,7 +1,7 @@
 let rs = require("readline-sync");
 
 function game() {
-  let intro = rs.keyIn("Press any key to start the game ", { limit: "$<a-z>" });
+  rs.keyIn("Press any key to start the game ", { limit: "$<a-z>" });
   let displayBoard = [
     [" ", " 1 ", "2 ", "3 ", "4 "],
     ["A", "A1", "A2", "A3", "A4"],
